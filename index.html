@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terbu</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- الناف بار الثابت -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+            </button>
+            <div class="logo">
+                <a href="/" data-link>TERBU </a>
+            </div>
+            <div class="cart-icon-wrapper" id="cartBtn">
+                <img src="assets/icons/cart.svg" alt="السلة" class="nav-icon">
+                <span class="cart-badge" id="cartBadge">0</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- حقل البحث الممتد (يتحكم فيه الراوتر ليختفي في السلة والتفاصيل) -->
+    <div class="search-bar-wrapper" id="searchBarWrapper">
+        <div class="search-input-container">
+            <input type="text" id="searchInput" placeholder="بتدور على ايه ؟" autocomplete="off">
+            <button id="searchSubmitBtn">
+                <img src="assets/icons/search.svg" alt="بحث">
+            </button>
+            <!-- فقاعة نتائج البحث الفورية أثناء الكتابة -->
+            <div class="search-pop-overlay" id="searchPop">
+                <div class="search-pop-content" id="searchPopResults">
+                    <!-- النتائج تظهر هنا ديناميكياً -->
+                </div>
+                <button class="view-all-results-btn" id="viewAllResultsBtn">عرض كل النتائج (0)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- القائمة الجانبية للناف بار (تفتح من الشمال لليمين 75%) -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <div class="sidebar" id="sidebarMenu">
+        <div class="sidebar-links">
+            <a href="/" data-link class="sidebar-item active">الرئيسية</a>
+            <a href="/@tshirt" data-link class="sidebar-item">التيشيرت</a>
+            <a href="/@pant" data-link class="sidebar-item">البنطلون</a>
+            <a href="/@hoodie" data-link class="sidebar-item">الهودي</a>
+            <a href="/@offers" data-link class="sidebar-item">العروض</a>
+            <button class="sidebar-item user-data-trigger" id="sidebarUserDataBtn">بياناتك</button>
+        </div>
+        <div class="sidebar-social">
+            <div class="social-title">السوشيال</div>
+            <div class="social-icons">
+                <a href="https://facebook.com" target="_blank"><img src="assets/icons/facebook.svg" alt="فيسبوك"></a>
+                <a href="https://instagram.com" target="_blank"><img src="assets/icons/instagram.svg" alt="انستجرام"></a>
+                <a href="https://tiktok.com" target="_blank"><img src="assets/icons/tiktok.svg" alt="تيك توك"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- حاوية المحتوى الديناميكي (SPA) -->
+    <main id="app-root"></main>
+
+    <!-- الفوتر الثابت -->
+    <footer class="main-footer" id="mainFooter">
+        <div class="footer-border"></div>
+        <p>تم التطوير بواسطة <a href="https://nabni-digital.vercel.app/" target="_blank" class="nabni-link">NabNi</a></p>
+    </footer>
+
+    <!-- فقاعة إدخال وتعديل البيانات (تظهر لملء بيانات الشحن) -->
+    <div class="modal-overlay" id="userDataModal">
+        <div class="modal-box">
+            <h3>أدخل بياناتك هنا</h3>
+            <div class="form-group">
+                <input type="text" id="userName" placeholder="الاسم بالكامل">
+            </div>
+            <div class="form-group">
+                <input type="text" id="userGov" placeholder="المحافظة">
+            </div>
+            <div class="form-group">
+                <input type="text" id="userCity" placeholder="المدينة">
+            </div>
+            <div class="form-group">
+                <input type="text" id="userVillage" placeholder="القرية">
+            </div>
+            <div class="form-group">
+                <textarea id="userAddressDet" placeholder="العنوان بالتفصيل (الشارع، رقم المنزل...)"></textarea>
+            </div>
+            <button class="save-data-btn" id="saveUserDataBtn">حفظ بياناتك</button>
+        </div>
+    </div>
+
+    <!-- حاوية التوست والرسائل التنبيهية المخصصة (Custom Toast) -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- ملفات الجافا سكريبت -->
+    <script src="js/data.js"></script>
+    <script src="js/views/home.js"></script>
+    <script src="js/views/section.js"></script>
+    <script src="js/views/item.js"></script>
+    <script src="js/views/search.js"></script>
+    <script src="js/views/cart.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
